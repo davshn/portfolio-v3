@@ -1,0 +1,24 @@
+---
+interface Props {
+  text: string
+}
+
+// eslint-disable-next-line @typescript-eslint/prefer-destructuring -- Astro.props destructuring pattern required in Astro frontmatter
+const { text } = Astro.props
+---
+
+<span class="badge">{text}</span>
+
+<style>
+  .badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: var(--color-brand, #34495e);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+</style>

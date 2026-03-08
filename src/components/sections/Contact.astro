@@ -1,0 +1,160 @@
+---
+import ContactForm from './ContactForm'
+---
+
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Contact Me</h2>
+    </div>
+
+    <div class="contact-layout">
+      <!-- Address cards -->
+      <div class="contact-cards">
+        <div class="contact-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+          <div class="contact-card-icon">📞</div>
+          <h4>Phone</h4>
+          <a href="tel:+573106961637">+57 3106961637</a>
+        </div>
+        <div class="contact-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+          <div class="contact-card-icon">✉️</div>
+          <h4>Email</h4>
+          <a href="mailto:davshn@gmail.com">davshn@gmail.com</a>
+        </div>
+        <div class="contact-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+          <div class="contact-card-icon">📍</div>
+          <h4>Location</h4>
+          <p>Galan, Bogota, Colombia</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div
+        class="contact-form-wrapper"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        data-aos-delay="200"
+      >
+        <ContactForm client:visible />
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="contact-map" data-aos="fade-up" data-aos-duration="1200">
+      <iframe
+        title="David Figueroa location - Bogota, Colombia"
+        src="https://maps.google.com/maps?q=4.6482975,-74.107807&z=14&output=embed"
+        width="100%"
+        height="400"
+        style="border: 0; border-radius: 12px;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding: 6rem 4rem;
+    background: #fff;
+  }
+
+  body.theme-dark .contact-section {
+    background: #111319;
+  }
+
+  .contact-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #34495e;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #1a1a1a;
+  }
+
+  body.theme-dark .section-title {
+    color: #fff;
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-card {
+    background: #f5f8fc;
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  body.theme-dark .contact-card {
+    background: #191c26;
+  }
+
+  .contact-card-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-card h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.25rem;
+  }
+
+  body.theme-dark .contact-card h4 {
+    color: #fff;
+  }
+
+  .contact-card a,
+  .contact-card p {
+    font-size: 0.8rem;
+    color: #7e7e7e;
+    text-decoration: none;
+    word-break: break-all;
+  }
+
+  .contact-card a:hover {
+    color: #34495e;
+  }
+
+  .contact-map iframe {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 4rem 2rem;
+    }
+    .contact-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

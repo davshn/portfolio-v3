@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hernán David Figueroa Cardenas — CV</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --accent: #00a67e;
+      --accent-light: #e6f7f3;
+      --accent-mid: #b3e6d9;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --muted-light: #9ca3af;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --surface: #f9fafb;
+      --placeholder: #f3f4f6;
+      --placeholder-border: #d1d5db;
+      --placeholder-text: #9ca3af;
+      --font: 'Inter', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html {
+      font-size: 14px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 52px 40px 60px;
+    }
+
+    /* ── PHOTO PLACEHOLDER ── */
+    .photo-placeholder {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 2px dashed var(--placeholder-border);
+      background: var(--placeholder);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .photo-placeholder .ph-label {
+      font-size: 9px;
+      color: var(--placeholder-text);
+      font-family: var(--mono);
+      text-align: center;
+      line-height: 1.4;
+      padding: 4px;
+    }
+
+    /* ── LOGO PLACEHOLDER ── */
+    .logo-placeholder {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1.5px dashed var(--placeholder-border);
+      background: var(--placeholder);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .logo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .logo-placeholder .ph-icon {
+      font-size: 13px;
+      color: var(--placeholder-text);
+    }
+
+    /* ── LOGO PLACEHOLDER SMALL (edu) ── */
+    .logo-placeholder.sm {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      padding-bottom: 28px;
+      border-bottom: 2px solid var(--text);
+      margin-bottom: 36px;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .header-main {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    h1 {
+      font-size: 31px;
+      font-weight: 700;
+      letter-spacing: -0.7px;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+
+    .location {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-top: 6px;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
+      flex-shrink: 0;
+      padding-left: 18px;
+      border-left: 1px solid var(--border);
+    }
+
+    .contact-item {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact-item a {
+      color: var(--muted);
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      font-size: 13.5px;
+      color: #374151;
+      line-height: 1.8;
+    }
+
+    .intro strong {
+      color: var(--text);
+    }
+
+    /* ── METRIC ── */
+    .metric {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--accent-mid);
+      border-radius: 4px;
+      font-size: 11px;
+      font-family: var(--mono);
+      font-weight: 500;
+      padding: 1px 7px;
+      margin: 0 2px;
+      white-space: nowrap;
+    }
+
+    /* ── JOB ── */
+    .job {
+      display: grid;
+      grid-template-columns: 1fr 110px;
+      gap: 0 24px;
+      padding-bottom: 26px;
+      margin-bottom: 26px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .job:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .job-header-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .job-title-block {}
+
+    .job-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .job-company {
+      font-size: 12.5px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .job-period {
+      font-size: 11.5px;
+      color: var(--muted);
+      font-family: var(--mono);
+      white-space: nowrap;
+      text-align: right;
+      margin-bottom: 2px;
+    }
+
+    .job-duration {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: var(--mono);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .job-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+
+    .job-bullets li {
+      font-size: 12.5px;
+      color: #4b5563;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .job-bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .job-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      font-size: 10.5px;
+      font-family: var(--mono);
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 4px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--accent-mid);
+    }
+
+    .tag.neutral {
+      background: var(--surface);
+      color: var(--muted);
+      border-color: var(--border);
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px 16px;
+    }
+
+    .skill-group-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    /* ── TWO-COL ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 32px;
+    }
+
+    /* ── CERT ── */
+    .cert-item {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cert-item:first-child {
+      padding-top: 0;
+    }
+
+    .cert-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .cert-name {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .cert-meta {
+      font-size: 11.5px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cert-badge {
+      font-size: 9.5px;
+      font-family: var(--mono);
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    .cert-badge.security {
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--accent-mid);
+    }
+
+    .cert-badge.agile {
+      background: #eff6ff;
+      color: #2563eb;
+      border: 1px solid #bfdbfe;
+    }
+
+    .cert-badge.dev {
+      background: #fff7ed;
+      color: #ea580c;
+      border: 1px solid #fed7aa;
+    }
+
+    .cert-badge.lang {
+      background: #faf5ff;
+      color: #7c3aed;
+      border: 1px solid #e9d5ff;
+    }
+
+    /* ── EDU ── */
+    .edu-item {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-item:first-child {
+      padding-top: 0;
+    }
+
+    .edu-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .edu-header-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .edu-name {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .edu-school {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .edu-note {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .cycle-steps {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    .cycle-step {
+      font-size: 10px;
+      font-family: var(--mono);
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+
+    .cycle-step.active {
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--accent-mid);
+    }
+
+    .cycle-step.pending {
+      background: var(--surface);
+      color: var(--muted-light);
+      border: 1px solid var(--border);
+    }
+
+    .cycle-arrow {
+      color: var(--muted-light);
+      font-size: 12px;
+    }
+
+    /* ── LANG ── */
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lang-row:last-child {
+      border-bottom: none;
+    }
+
+    .lang-name {
+      font-size: 12.5px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .lang-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .dot.empty {
+      background: var(--border);
+    }
+
+    .lang-label {
+      font-size: 10.5px;
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    .footer-note {
+      font-size: 11px;
+      color: var(--muted-light);
+      font-family: var(--mono);
+    }
+
+    .qr-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .qr-block img {
+      width: 80px;
+      height: 80px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px;
+      background: white;
+    }
+
+    .qr-label {
+      font-size: 9.5px;
+      color: var(--muted-light);
+      font-family: var(--mono);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    @media print {
+      .page {
+        padding: 24px 28px;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-inner">
+
+        <!-- FOTO: reemplaza el src con tu foto -->
+        <div class="photo-placeholder">
+          <!-- <img src="tu-foto.jpg" alt="Hernán Figueroa" /> -->
+          <span class="ph-label">Your<br>Photo</span>
+        </div>
+
+        <div class="header-main">
+          <div>
+            <h1>Hernán David Figueroa Cardenas</h1>
+            <div class="location">Bogotá, Colombia</div>
+            <div class="tagline">Senior Mobile Engineer · Fintech & Secure Payments · React Native Architect · Fullstack
+            </div>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-item"><a href="/cdn-cgi/l/email-protection#b5d1d4c3c6dddbf5d2d8d4dcd99bd6dad8"><span
+                  class="__cf_email__"
+                  data-cfemail="1175706762797f51767c70787d3f727e7c">davshn@gmail.com</span></a></div>
+            <div class="contact-item">+57 310 696 1637</div>
+            <div class="contact-item"><a href="https://github.com/davshn" target="_blank">github.com/davshn</a></div>
+            <div class="contact-item"><a href="https://linkedin.com/in/davshn"
+                target="_blank">linkedin.com/in/davshn</a></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="section">
+      <div class="section-title">About</div>
+      <p class="intro">
+        Senior Mobile Engineer specializing in <strong>fintech and secure payments</strong>, with 9+ years building
+        production React Native apps from zero to scale. I've shipped a <strong>logistics platform</strong> used across
+        multiple Latin American cities, grown a <strong>fintech mobile app from its first user to 500+ daily active
+          clients</strong>,
+        and implemented <strong>PCI DSS-compliant</strong> security layers — SSL Pinning, integrity validation,
+        and secure AWS Lambda architectures — at one of Colombia's leading payment gateways.
+        I care deeply about clean architecture, security-first engineering, and writing code that doesn't become
+        someone else's problem six months later.
+      </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="section-title">Experience</div>
+
+      <!-- Wompi -->
+      <div class="job">
+        <div>
+          <div class="job-header-row">
+            <!-- LOGO Wompi: reemplaza el src -->
+            <div class="logo-placeholder">
+              <!-- <img src="wompi-logo.png" alt="Wompi" /> -->
+              <span class="ph-icon">🏢</span>
+            </div>
+            <div class="job-title-block">
+              <div class="job-role">Mobile Engineer</div>
+              <div class="job-company">Wompi · Fintech — Colombia's Leading Payment Gateway 🇨🇴</div>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Implemented <strong>SSL Pinning, certificate transparency validation</strong> and runtime integrity
+              checks, hardening the mobile app against MITM attacks and tampering.</li>
+            <li>Built and secured <strong>AWS Lambda functions</strong> following <span class="metric">PCI DSS</span>
+              compliance requirements, ensuring sensitive payment data never touches unvalidated surfaces.</li>
+            <li>Integrated the mobile client with Wompi's payment infrastructure using encrypted communication layers
+              and token-based auth flows.</li>
+            <li>Participated in architecture reviews and deployment pipelines for production-critical payment features.
+            </li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">React Native</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">NestJS</span>
+            <span class="tag">AWS Lambda</span>
+            <span class="tag neutral">Jest</span>
+            <span class="tag neutral">SSL Pinning</span>
+            <span class="tag neutral">PCI DSS</span>
+          </div>
+        </div>
+        <div>
+          <div class="job-period">Nov 2025 — Present</div>
+          <div class="job-duration">~4 months</div>
+        </div>
+      </div>
+
+      <!-- Mento -->
+      <div class="job">
+        <div>
+          <div class="job-header-row">
+            <!-- LOGO Mento -->
+            <div class="logo-placeholder">
+              <!-- <img src="mento-logo.png" alt="Mento" /> -->
+              <span class="ph-icon">🏢</span>
+            </div>
+            <div class="job-title-block">
+              <div class="job-role">Senior Mobile Developer</div>
+              <div class="job-company">Mento · Fintech Startup 🇨🇱</div>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Built the React Native app <strong>from scratch</strong>, taking it from initial architecture to <span
+                class="metric">500+ daily active users</span> in production.</li>
+            <li>Owned the <strong>full deployment pipeline</strong> — from CI/CD configuration to App Store and Google
+              Play releases — ensuring zero-downtime delivery cycles.</li>
+            <li>Implemented mobile security measures including <strong>secure storage, token rotation</strong> and
+              communication encryption to protect sensitive financial data.</li>
+            <li>Led architectural decisions across the mobile layer, balancing product velocity with long-term
+              maintainability.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">React Native</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Expo</span>
+            <span class="tag neutral">NodeJS</span>
+            <span class="tag neutral">CI/CD</span>
+            <span class="tag neutral">App Store</span>
+            <span class="tag neutral">Google Play</span>
+          </div>
+        </div>
+        <div>
+          <div class="job-period">Sep 2023 — Nov 2025</div>
+          <div class="job-duration">2 yrs 3 mos</div>
+        </div>
+      </div>
+
+      <!-- Bentex / Logistecsa -->
+      <div class="job">
+        <div>
+          <div class="job-header-row">
+            <!-- LOGO Bentex/Logistecsa -->
+            <div class="logo-placeholder">
+              <!-- <img src="bentex-logo.png" alt="Bentex" /> -->
+              <span class="ph-icon">🏢</span>
+            </div>
+            <div class="job-title-block">
+              <div class="job-role">Mobile Technical Lead</div>
+              <div class="job-company">Bentex · Subsidiary of Logistecsa (Ecuador) 🇨🇴🇪🇨</div>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Designed and built <strong>MetroDelivery</strong> — a last-mile logistics mobile platform — from zero,
+              covering driver tracking, route assignment, delivery confirmation and real-time status updates.</li>
+            <li>Led a mobile engineering team: architecture decisions, code reviews, development standards and feature
+              planning across multiple delivery cycles.</li>
+            <li>Defined the app's data flow and offline-first strategy to support drivers in low-connectivity zones
+              across Latin America.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">React Native</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag neutral">React</span>
+            <span class="tag neutral">REST APIs</span>
+            <span class="tag neutral">Maps SDK</span>
+            <span class="tag neutral">Offline-first</span>
+          </div>
+        </div>
+        <div>
+          <div class="job-period">Jan 2022 — Aug 2024</div>
+          <div class="job-duration">2 yrs 8 mos</div>
+        </div>
+      </div>
+
+      <!-- Orbis -->
+      <div class="job">
+        <div>
+          <div class="job-header-row">
+            <!-- LOGO Orbis -->
+            <div class="logo-placeholder">
+              <!-- <img src="orbis-logo.png" alt="Orbis Data" /> -->
+              <span class="ph-icon">🏢</span>
+            </div>
+            <div class="job-title-block">
+              <div class="job-role">Frontend & Mobile Developer</div>
+              <div class="job-company">Orbis Data 🇨🇱</div>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Designed and implemented RESTful API integrations supporting both mobile and web applications.</li>
+            <li>Migrated and optimized web-based flows into performant React Native screens, improving load times and UX
+              consistency.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">React Native</span>
+            <span class="tag neutral">React</span>
+            <span class="tag neutral">Redux-Saga</span>
+            <span class="tag neutral">REST APIs</span>
+          </div>
+        </div>
+        <div>
+          <div class="job-period">Oct 2022 — Sep 2023</div>
+          <div class="job-duration">12 months</div>
+        </div>
+      </div>
+
+      <!-- Koscrypt -->
+      <div class="job">
+        <div>
+          <div class="job-header-row">
+            <!-- LOGO Koscrypt -->
+            <div class="logo-placeholder">
+              <!-- <img src="koscrypt-logo.png" alt="Koscrypt" /> -->
+              <span class="ph-icon">🏢</span>
+            </div>
+            <div class="job-title-block">
+              <div class="job-role">Fullstack Developer</div>
+              <div class="job-company">Koscrypt 🇨🇴</div>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Built RESTful APIs and high-performance web applications using Node.js, Express and Angular 2+.</li>
+            <li>Improved application speed, security and reliability through continuous profiling and performance
+              tuning.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">React Native</span>
+            <span class="tag neutral">React</span>
+            <span class="tag neutral">Angular 2+</span>
+            <span class="tag neutral">Express</span>
+            <span class="tag neutral">NodeJS</span>
+            <span class="tag neutral">PostgreSQL</span>
+          </div>
+        </div>
+        <div>
+          <div class="job-period">Dec 2018 — Feb 2022</div>
+          <div class="job-duration">3 yrs 3 mos</div>
+        </div>
+      </div>
+
+      <!-- Secretaría -->
+      <div class="job">
+        <div>
+          <div class="job-header-row">
+            <!-- LOGO Secretaría -->
+            <div class="logo-placeholder">
+              <!-- <img src="secretaria-logo.png" alt="Secretaría" /> -->
+              <span class="ph-icon">🏛️</span>
+            </div>
+            <div class="job-title-block">
+              <div class="job-role">IT Support Technician</div>
+              <div class="job-company">Secretaría de Integración Social de Bogotá 🇨🇴</div>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Managed hardware and software inventory and provided technical support for internal systems.</li>
+            <li>Performed preventive and corrective maintenance, developed user documentation and operational
+              guidelines.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag neutral">IT Support</span>
+            <span class="tag neutral">Hardware</span>
+            <span class="tag neutral">Technical Documentation</span>
+          </div>
+        </div>
+        <div>
+          <div class="job-period">Dec 2014 — May 2016</div>
+          <div class="job-duration">1 yr 6 mos</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="section">
+      <div class="section-title">Tech Stack</div>
+      <div class="skills-grid">
+        <div>
+          <div class="skill-group-label">Mobile</div>
+          <div class="skill-tags">
+            <span class="tag">React Native</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Expo</span>
+            <span class="tag neutral">Redux</span>
+            <span class="tag neutral">Deep Linking</span>
+            <span class="tag neutral">Kottlin Multiplatform</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">Backend</div>
+          <div class="skill-tags">
+            <span class="tag">NestJS</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">AWS Lambda</span>
+            <span class="tag neutral">Express</span>
+            <span class="tag neutral">NodeJS</span>
+            <span class="tag neutral">REST APIs</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">Security</div>
+          <div class="skill-tags">
+            <span class="tag">SSL Pinning</span>
+            <span class="tag">PCI DSS</span>
+            <span class="tag neutral">OWASP Mobile</span>
+            <span class="tag neutral">Secure Storage</span>
+            <span class="tag neutral">Cert. Validation</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">DevOps & Delivery</div>
+          <div class="skill-tags">
+            <span class="tag neutral">CI/CD</span>
+            <span class="tag neutral">App Store Connect</span>
+            <span class="tag neutral">Google Play</span>
+            <span class="tag neutral">AWS</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">Frontend</div>
+          <div class="skill-tags">
+            <span class="tag neutral">React</span>
+            <span class="tag neutral">Angular 2+</span>
+            <span class="tag neutral">Next.js</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-label">Practices</div>
+          <div class="skill-tags">
+            <span class="tag neutral">Clean Architecture</span>
+            <span class="tag neutral">SOLID</span>
+            <span class="tag neutral">TDD</span>
+            <span class="tag neutral">Secure SDLC</span>
+            <span class="tag neutral">Scrum</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAL PROJECTS -->
+    <section class="section">
+      <div class="section-title">Personal Projects</div>
+
+      <!-- ForgeAI -->
+      <div class="job">
+        <div>
+          <div class="job-header-row">
+            <div class="logo-placeholder">
+              <!-- <img src="forgeai-logo.png" alt="ForgeAI" /> -->
+              <span class="ph-icon">⚙️</span>
+            </div>
+            <div class="job-title-block">
+              <div class="job-role">ForgeAI <span style="font-weight:400;font-size:12px;color:var(--muted)">—
+                  Creator</span>
+              </div>
+              <div class="job-company"><a href="https://davshn.gumroad.com/l/ForgeAI"
+                  target="_blank">davshn.gumroad.com/l/ForgeAI</a> · Published</div>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Production-grade <strong>AI workflow orchestrator</strong> for software-driven development — designed to
+              automate and coordinate multi-step AI agent pipelines in real dev environments.</li>
+            <li>Built for developers who need structured, repeatable AI-assisted workflows beyond simple prompt chaining
+              —
+              published and distributed via Gumroad.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag neutral">AI Orchestration</span>
+            <span class="tag neutral">SDD</span>
+            <span class="tag neutral">Workflow Automation</span>
+          </div>
+        </div>
+        <div>
+          <div class="job-period">2026</div>
+          <div class="job-duration">Published</div>
+        </div>
+      </div>
+
+      <!-- CyberQuest -->
+      <div class="job">
+        <div>
+          <div class="job-header-row">
+            <div class="logo-placeholder">
+              <!-- <img src="cyberquest-logo.png" alt="CyberQuest" /> -->
+              <span class="ph-icon">🔐</span>
+            </div>
+            <div class="job-title-block">
+              <div class="job-role">CyberQuest <span style="font-weight:400;font-size:12px;color:var(--muted)">— Founder
+                  & Lead Engineer</span></div>
+              <div class="job-company"><a href="https://cyber-quest-landing.vercel.app/"
+                  target="_blank">cyber-quest-landing.vercel.app</a> · Currently in Beta</div>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Gamified enterprise cybersecurity training platform — mobile app <strong>(React Native)</strong> + web
+              dashboard + AI engine, built end-to-end as sole architect and developer.</li>
+            <li>Implemented <strong>OTP-based passwordless auth</strong>, role-based content personalization
+              (administrative, technical, managerial) and real-time progress analytics for enterprise clients.</li>
+            <li>Integrated <strong>AI-powered contextual feedback</strong> and automatic certificate generation after
+              each training module, targeting <span class="metric">80% engagement improvement</span> vs traditional
+              formats.</li>
+            <li>Architected for regulatory compliance use cases — aligned with ISO 27001, COBIT and OWASP training
+              frameworks.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">React Native</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">NestJS</span>
+            <span class="tag neutral">AI Integration</span>
+            <span class="tag neutral">Gamification</span>
+          </div>
+        </div>
+        <div>
+          <div class="job-period">2025 — Present</div>
+          <div class="job-duration">Beta</div>
+        </div>
+      </div>
+
+      <!-- Foundry VTT -->
+      <div class="job">
+        <div>
+          <div class="job-header-row">
+            <div class="logo-placeholder">
+              <!-- <img src="foundryvtt-logo.png" alt="Foundry VTT" /> -->
+              <span class="ph-icon">🎲</span>
+            </div>
+            <div class="job-title-block">
+              <div class="job-role">Foundry Virtual Tabletop <span
+                  style="font-weight:400;font-size:12px;color:var(--muted)">— Open Source Contributor</span></div>
+              <div class="job-company"><a href="https://foundryvtt.com" target="_blank">foundryvtt.com</a> · v1.15.2 ·
+                Published on Official Marketplace</div>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Contributed to <strong>Foundry VTT</strong> — a self-hosted virtual tabletop platform with <strong>200+
+                supported game systems</strong> and a global community of thousands of players and developers.</li>
+            <li>Developed and published <strong>modules/plugins and a custom game system</strong> on the official
+              Foundry marketplace, extending the platform's core functionality using its JavaScript API.</li>
+          </ul>
+          <div class="job-tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag neutral">Open Source</span>
+            <span class="tag neutral">Plugin Architecture</span>
+            <span class="tag neutral">Game Systems</span>
+            <span class="tag neutral">Web APIs</span>
+          </div>
+        </div>
+        <div>
+          <div class="job-period">2022 — Present</div>
+          <div class="job-duration">v1.15.2</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- EDU + CERTS -->
+    <div class="two-col">
+
+      <section class="section">
+        <div class="section-title">Education</div>
+
+        <div class="edu-item">
+          <div class="edu-header-row">
+            <!-- LOGO CUN -->
+            <div class="logo-placeholder sm">
+              <!-- <img src="cun-logo.png" alt="CUN" /> -->
+              <span style="font-size:11px;">🎓</span>
+            </div>
+            <div>
+              <div class="edu-name">Systems Engineering</div>
+              <div class="edu-school">CUN — Corporación Unificada Nacional</div>
+            </div>
+          </div>
+          <div class="edu-note">In progress · Propedeutic cycles</div>
+          <div class="cycle-steps">
+            <span class="cycle-step active">Technical</span>
+            <span class="cycle-arrow">›</span>
+            <span class="cycle-step pending">Technologist</span>
+            <span class="cycle-arrow">›</span>
+            <span class="cycle-step pending">Engineering</span>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-header-row">
+            <!-- LOGO Henry -->
+            <div class="logo-placeholder sm">
+              <!-- <img src="henry-logo.png" alt="Henry" /> -->
+              <span style="font-size:11px;">🎓</span>
+            </div>
+            <div>
+              <div class="edu-name">Fullstack Bootcamp</div>
+              <div class="edu-school">Henry</div>
+            </div>
+          </div>
+          <div class="edu-note">Sep 2020 — Jan 2021</div>
+        </div>
+
+        <div style="margin-top:24px;">
+          <div class="section-title">Languages</div>
+          <div class="lang-row">
+            <span class="lang-name">Spanish</span>
+            <div class="lang-right">
+              <span class="lang-label">Native</span>
+              <div class="lang-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">English</span>
+            <div class="lang-right">
+              <span class="lang-label">Functional</span>
+              <div class="lang-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot empty"></div>
+                <div class="dot empty"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Certifications</div>
+
+        <div class="cert-item">
+          <div class="cert-name">Certified in Cybersecurity (CC)</div>
+          <div class="cert-meta">(ISC)² · Nov 2022 <span class="cert-badge security">Security</span></div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-name">Secure Software Development</div>
+          <div class="cert-meta">Udemy · Oct 2022 <span class="cert-badge security">Security</span></div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-name">SOLID Principles & Clean Code</div>
+          <div class="cert-meta">Udemy · Oct 2022 <span class="cert-badge dev">Architecture</span></div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-name">Scrum Fundamentals Certified (SFC)</div>
+          <div class="cert-meta">SCRUMstudy · Nov 2022 <span class="cert-badge agile">Agile</span></div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-name">EF SET English Certificate</div>
+          <div class="cert-meta">EF SET · Dec 2021 <span class="cert-badge lang">Language</span></div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-left">
+        <div class="footer-links">
+          <a href="https://github.com/davshn" class="footer-link" target="_blank">GitHub · davshn</a>
+          <a href="https://linkedin.com/in/davshn" class="footer-link" target="_blank">LinkedIn · davshn</a>
+          <a href="https://portafoliov2-6ylsq0i7i-davshn.vercel.app" class="footer-link" target="_blank">Portfolio</a>
+        </div>
+        <div class="footer-note"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+            data-cfemail="55313423263d3b153238343c397b363a38">davshn@gmail.com</a> · +57 310 696 1637</div>
+      </div>
+      <div class="qr-block">
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://portafoliov2-6ylsq0i7i-davshn.vercel.app&color=00a67e&bgcolor=ffffff&margin=4"
+          alt="QR Portfolio" loading="lazy" />
+        <div class="qr-label">Portfolio</div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>

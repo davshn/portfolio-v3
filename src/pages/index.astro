@@ -1,0 +1,43 @@
+---
+import Sidebar from '../components/layout/Sidebar.astro'
+import About from '../components/sections/About.astro'
+import Contact from '../components/sections/Contact.astro'
+import Hero from '../components/sections/Hero.astro'
+import Portfolio from '../components/sections/Portfolio.astro'
+import Service from '../components/sections/Service.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+  title="David Figueroa | Fullstack Developer"
+  description="Personal portfolio of David Figueroa — Fullstack Developer based in Bogota, Colombia with 6+ years of experience building web and mobile applications."
+  canonicalUrl="https://davshn.dev"
+>
+  <Sidebar />
+  <main class="main-content">
+    <Hero />
+    <About />
+    <Service />
+    <Portfolio />
+    <Contact />
+  </main>
+</BaseLayout>
+
+<style>
+  .main-content {
+    margin-left: 320px;
+    min-height: 100vh;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1500px) {
+    .main-content {
+      margin-left: 288px;
+    }
+  }
+
+  @media (max-width: 1199px) {
+    .main-content {
+      margin-left: 0;
+    }
+  }
+</style>

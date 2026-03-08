@@ -1,0 +1,8 @@
+[
+  { "name": "React Native", "percent": 95 },
+  { "name": "TypeScript", "percent": 95 },
+  { "name": "NestJS", "percent": 85 },
+  { "name": "React", "percent": 85 },
+  { "name": "PostgreSQL", "percent": 80 },
+  { "name": "AWS Lambda", "percent": 75 }
+]

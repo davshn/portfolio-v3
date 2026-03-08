@@ -1,0 +1,72 @@
+---
+interface Props {
+  label: string
+  percentage: number
+}
+
+// eslint-disable-next-line @typescript-eslint/prefer-destructuring -- Astro.props destructuring pattern required in Astro frontmatter
+const { label, percentage } = Astro.props
+---
+
+<div class="progress-item">
+  <div class="progress-header">
+    <span class="progress-label">{label}</span>
+    <span class="progress-value">{percentage}%</span>
+  </div>
+  <div class="progress-track">
+    <div
+      class="progress-fill"
+      style={`width: ${percentage}%`}
+      role="progressbar"
+      aria-valuenow={percentage}
+      aria-valuemin={0}
+      aria-valuemax={100}
+    >
+    </div>
+  </div>
+</div>
+
+<style>
+  .progress-item {
+    margin-bottom: 1.2rem;
+  }
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--color-heading, #1a1a1a);
+  }
+
+  :global(body.theme-dark) .progress-label {
+    color: #fff;
+  }
+
+  .progress-value {
+    font-size: 0.85rem;
+    color: var(--color-text, #7e7e7e);
+  }
+
+  .progress-track {
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  :global(body.theme-dark) .progress-track {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--color-brand, #34495e);
+    border-radius: 3px;
+    transition: width 0.8s ease;
+  }
+</style>

@@ -1,0 +1,71 @@
+---
+interface Props {
+  label: string
+  href?: string
+  variant?: 'primary' | 'outline'
+  download?: boolean
+  class?: string
+}
+
+// eslint-disable-next-line @typescript-eslint/prefer-destructuring -- Astro.props destructuring pattern required in Astro frontmatter
+const { label, href, variant = 'outline', download = false, class: className = '' } = Astro.props
+---
+
+{
+  href === undefined ? (
+    <button class={`btn btn-${variant} ${className}`}>{label}</button>
+  ) : (
+    <a href={href} download={download || undefined} class={`btn btn-${variant} ${className}`}>
+      {label}
+    </a>
+  )
+}
+
+<style>
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: 6px;
+    font-family: var(--font-poppins, 'Poppins', sans-serif);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline {
+    border: 2px solid #7e7e7e;
+    color: var(--color-heading, #1a1a1a);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: #1a1a1a;
+    color: #fff;
+    border-color: #1a1a1a;
+  }
+
+  :global(body.theme-dark) .btn-outline {
+    border-color: #a9afc3;
+    color: #fff;
+  }
+
+  :global(body.theme-dark) .btn-outline:hover {
+    background: #fff;
+    color: #111319;
+    border-color: #fff;
+  }
+
+  .btn-primary {
+    background: var(--color-brand, #34495e);
+    color: #fff;
+    border: 2px solid var(--color-brand, #34495e);
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--color-brand, #34495e);
+  }
+</style>

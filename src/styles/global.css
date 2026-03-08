@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+@theme {
+  --color-brand: #00a67e;
+  --color-text: #7e7e7e;
+  --color-heading: #1a1a1a;
+  --color-bg: #fff;
+  --color-section-alt: #f5f5f5;
+
+  --font-poppins: "Poppins", sans-serif;
+
+  --font-size-h1: 45px;
+  --font-size-h2: 36px;
+  --font-size-h3: 30px;
+  --font-size-h4: 24px;
+  --font-size-h5: 20px;
+  --font-size-h6: 16px;
+}
+
+/* Base resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: #7e7e7e;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Typography scale */
+h1 {
+  font-size: 45px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+/* Light theme */
+body.theme-light {
+  background: #fff;
+  color: #7e7e7e;
+
+  --heading-color: #1a1a1a;
+  --brand-color: #34495e;
+  --section-alt-bg: #f5f5f5;
+  --section-alt-bg-2: #f5f8fc;
+}
+
+body.theme-light h1,
+body.theme-light h2,
+body.theme-light h3,
+body.theme-light h4,
+body.theme-light h5,
+body.theme-light h6 {
+  color: #1a1a1a;
+}
+
+/* Dark theme */
+body.theme-dark {
+  background: #111319;
+  color: #a9afc3;
+
+  --heading-color: #fff;
+  --brand-color: #34495e;
+  --hero-bg: #191c26;
+  --sidebar-bg: #34495e;
+}
+
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3,
+body.theme-dark h4,
+body.theme-dark h5,
+body.theme-dark h6 {
+  color: #fff;
+}
+
+/* Modal styles */
+.custom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.ReactModal__Overlay--after-open.custom-overlay {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close.custom-overlay {
+  opacity: 0;
+}
+
+.custom-modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 800px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  outline: none;
+  transform: translateY(20px);
+  transition: transform 0.5s ease;
+}
+
+body.theme-dark .custom-modal {
+  background: #191c26;
+  color: #a9afc3;
+}
+
+.ReactModal__Content--after-open.custom-modal {
+  transform: translateY(0);
+}
+
+.ReactModal__Content--before-close.custom-modal {
+  transform: translateY(20px);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  opacity: 1;
+}

@@ -1,0 +1,310 @@
+---
+import ThemeToggle from '../ui/ThemeToggle'
+---
+
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+    <!-- Logo/Name -->
+    <div class="sidebar-logo">
+      <a href="#home">David<span>.</span></a>
+    </div>
+
+    <!-- Nav -->
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <ul>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#service" class="nav-link">Services</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Social Icons (inline SVGs — Feather icon set) -->
+    <div class="sidebar-social">
+      <a
+        href="https://www.facebook.com/david.figueroa.184"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Facebook"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg
+        >
+      </a>
+      <a
+        href="https://twitter.com/davshmr"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Twitter"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path
+            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+          ></path></svg
+        >
+      </a>
+      <a
+        href="https://www.instagram.com/davidfigueroa9055"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path
+            d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line
+            x1="17.5"
+            y1="6.5"
+            x2="17.51"
+            y2="6.5"></line></svg
+        >
+      </a>
+      <a
+        href="https://github.com/davshn"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+          ></path></svg
+        >
+      </a>
+      <a
+        href="https://www.linkedin.com/in/davshn"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+          ></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"
+          ></circle></svg
+        >
+      </a>
+    </div>
+
+    <!-- Theme Toggle island -->
+    <ThemeToggle client:visible />
+  </div>
+</aside>
+
+<!-- Hamburger button (mobile only) -->
+<button id="hamburger" class="hamburger" aria-label="Toggle menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<style>
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 320px;
+    background-color: var(--sidebar-bg, #34495e);
+    color: #fff;
+    z-index: 100;
+    transition: all 0.5s ease;
+    overflow-y: auto;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1500px) {
+    .sidebar {
+      width: 288px;
+    }
+  }
+
+  @media (max-width: 1199px) {
+    .sidebar {
+      transform: translateX(-100%);
+    }
+
+    .sidebar.menu-open {
+      transform: translateX(0);
+    }
+  }
+
+  .sidebar-inner {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+  }
+
+  .sidebar-logo a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .sidebar-logo span {
+    color: #a9afc3;
+  }
+
+  .sidebar-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 1.5rem;
+  }
+
+  .sidebar-social {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-social a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+  }
+
+  .sidebar-social a:hover {
+    color: #fff;
+  }
+
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 200;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 1199px) {
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--color-heading, #1a1a1a);
+    transition: all 0.3s ease;
+  }
+
+  :global(body.theme-dark) .hamburger span {
+    background: #fff;
+  }
+</style>
+
+<script>
+  // Scrollspy via IntersectionObserver
+  const sections = document.querySelectorAll<HTMLElement>(
+    '#home, #about, #service, #portfolio, #contact',
+  )
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link')
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => link.classList.remove('active'))
+          const id = entry.target.getAttribute('id')
+          const activeLink = document.querySelector<HTMLAnchorElement>(`.nav-link[href="#${id}"]`)
+          if (activeLink) activeLink.classList.add('active')
+        }
+      })
+    },
+    { threshold: 0.4 },
+  )
+
+  sections.forEach((section) => observer.observe(section))
+</script>
+
+<script>
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger')
+  const sidebar = document.getElementById('sidebar')
+
+  hamburger?.addEventListener('click', () => {
+    sidebar?.classList.toggle('menu-open')
+  })
+
+  // Close sidebar when clicking a nav link (mobile)
+  document.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      sidebar?.classList.remove('menu-open')
+    })
+  })
+</script>

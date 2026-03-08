@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string
+  description: string
+  canonicalUrl: string
+  ogImage?: string
+  ogType?: 'website' | 'article'
+}
+
+// eslint-disable-next-line @typescript-eslint/prefer-destructuring -- Astro.props destructuring pattern required in Astro frontmatter
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogImage = '/og-image.jpg',
+  ogType = 'website',
+} = Astro.props
+
+const siteBase = Astro.site?.origin ?? ''
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteBase}${ogImage}`
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={absoluteOgImage} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteOgImage} />

@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content'
+
+import PortfolioCarousel from './PortfolioCarousel'
+
+const projectsCollection = await getCollection('projects')
+
+const projects = projectsCollection
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => ({
+    id: entry.id,
+    title: entry.data.title,
+    client: entry.data.client,
+    category: entry.data.category,
+    date: entry.data.date,
+    liveUrl: entry.data.liveUrl,
+    stack: entry.data.stack,
+    thumbnail: entry.data.thumbnail,
+    description: entry.data.description,
+    body: entry.body ?? '',
+  }))
+---
+
+<section id="portfolio" class="portfolio-section">
+  <div class="portfolio-container">
+    <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
+      <div class="section-label">My Work</div>
+      <h2 class="section-title">Portfolio</h2>
+    </div>
+
+    <PortfolioCarousel client:only="react" projects={projects} />
+  </div>
+</section>
+
+<style>
+  .portfolio-section {
+    padding: 6rem 4rem;
+    background: #f5f8fc;
+  }
+
+  body.theme-dark .portfolio-section {
+    background: #191c26;
+  }
+
+  .portfolio-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #34495e;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #1a1a1a;
+  }
+
+  body.theme-dark .section-title {
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-section {
+      padding: 4rem 2rem;
+    }
+  }
+</style>

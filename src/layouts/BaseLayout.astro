@@ -1,0 +1,53 @@
+---
+import '../styles/global.css'
+import CustomCursor from '../components/layout/CustomCursor'
+import ScrollToTop from '../components/ui/ScrollToTop'
+import { buildPersonSchema, buildWebSiteSchema } from '../seo/jsonld'
+import SEO from '../seo/SEO.astro'
+
+interface Props {
+  title: string
+  description: string
+  canonicalUrl?: string
+  ogImage?: string
+}
+
+// eslint-disable-next-line @typescript-eslint/prefer-destructuring -- Astro.props destructuring pattern required in Astro frontmatter
+const { title, description, canonicalUrl = Astro.url.href, ogImage } = Astro.props
+
+const personSchema = buildPersonSchema()
+const websiteSchema = buildWebSiteSchema(Astro.url.origin)
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <SEO title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <!-- Flash of wrong theme prevention: read localStorage synchronously -->
+    <script is:inline>
+      ;(function () {
+        const stored = localStorage.getItem('theme-color')
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        document.body.className = stored ? stored : (prefersDark ? 'theme-dark' : 'theme-light')
+      })()
+    </script>
+  </head>
+  <body>
+    <CustomCursor client:only="react" />
+    <slot />
+    <ScrollToTop client:visible />
+    <script>
+      import AOS from 'aos'
+      import 'aos/dist/aos.css'
+      document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ duration: 1200, once: true })
+      })
+    </script>
+  </body>
+</html>
