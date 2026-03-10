@@ -14,7 +14,7 @@ const Slider: React.ComponentType<Record<string, unknown>> = (
 
 const DESKTOP_SPEED = 800
 const DESKTOP_SLIDES = 3
-const MOBILE_BREAKPOINT = 575
+const MOBILE_BREAKPOINT = 1024
 const MOBILE_SPEED = 300
 const MOBILE_SLIDES = 1
 const SCROLL_AMOUNT = 1
