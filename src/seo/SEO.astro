@@ -1,10 +1,14 @@
 ---
+import type { Locale, AlternateLink } from '../i18n/utils'
+
 interface Props {
   title: string
   description: string
   canonicalUrl: string
   ogImage?: string
   ogType?: 'website' | 'article'
+  lang?: Locale
+  alternates?: AlternateLink[]
 }
 
 // eslint-disable-next-line @typescript-eslint/prefer-destructuring -- Astro.props destructuring pattern required in Astro frontmatter
@@ -14,10 +18,16 @@ const {
   canonicalUrl,
   ogImage = '/og-image.jpg',
   ogType = 'website',
+  lang = 'en',
+  alternates,
 } = Astro.props
 
 const siteBase = Astro.site?.origin ?? ''
 const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteBase}${ogImage}`
+
+// Map locale code to OG locale format
+const ogLocale = lang === 'es' ? 'es_ES' : 'en_US'
+const ogLocaleAlternate = lang === 'es' ? 'en_US' : 'es_ES'
 ---
 
 <title>{title}</title>
@@ -25,12 +35,18 @@ const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteBase}${ogI
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href={canonicalUrl} />
 
+{alternates?.map((alt) => (
+  <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+))}
+
 <!-- Open Graph -->
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:image" content={absoluteOgImage} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlternate} />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />

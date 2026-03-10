@@ -1,14 +1,23 @@
 ---
-import { getCollection } from 'astro:content'
+import type { Locale } from '../../i18n/utils'
+import { getTranslation } from '../../i18n/utils'
+import { getLocalizedCollection } from '../../i18n/getCollection'
 
 import PortfolioCarousel from './PortfolioCarousel'
 
-const projectsCollection = await getCollection('projects')
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const t = getTranslation(lang)
+
+const projectsCollection = await getLocalizedCollection('projects', lang)
 
 const projects = projectsCollection
   .sort((a, b) => a.data.order - b.data.order)
   .map((entry) => ({
-    id: entry.id,
+    id: entry.id.replace(/^(en|es)\//, ''),
     title: entry.data.title,
     client: entry.data.client,
     category: entry.data.category,
@@ -24,11 +33,11 @@ const projects = projectsCollection
 <section id="portfolio" class="portfolio-section">
   <div class="portfolio-container">
     <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
-      <div class="section-label">My Work</div>
-      <h2 class="section-title">Portfolio</h2>
+      <div class="section-label">{t.portfolio.sectionLabel}</div>
+      <h2 class="section-title">{t.portfolio.sectionTitle}</h2>
     </div>
 
-    <PortfolioCarousel client:only="react" projects={projects} />
+    <PortfolioCarousel client:only="react" projects={projects} messages={t.portfolio} />
   </div>
 </section>
 

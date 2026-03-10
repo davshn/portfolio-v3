@@ -1,0 +1,57 @@
+---
+import type { Locale, AlternateLink } from '../../i18n/utils'
+import { getI18nStaticPaths, getTranslation, getAlternates } from '../../i18n/utils'
+import Sidebar from '../../components/layout/Sidebar.astro'
+import About from '../../components/sections/About.astro'
+import Contact from '../../components/sections/Contact.astro'
+import Hero from '../../components/sections/Hero.astro'
+import Portfolio from '../../components/sections/Portfolio.astro'
+import Service from '../../components/sections/Service.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+export function getStaticPaths() {
+  return getI18nStaticPaths()
+}
+
+const { lang } = Astro.params as { lang: Locale }
+const t = getTranslation(lang)
+const siteBase = Astro.site?.origin ?? 'https://davshn.dev'
+const alternates: AlternateLink[] = getAlternates(siteBase)
+const canonicalUrl = `${siteBase}/${lang}`
+---
+
+<BaseLayout
+  title={t.hero.seo.title}
+  description={t.hero.seo.description}
+  canonicalUrl={canonicalUrl}
+  lang={lang}
+  alternates={alternates}
+>
+  <Sidebar lang={lang} />
+  <main class="main-content">
+    <Hero lang={lang} />
+    <About lang={lang} />
+    <Service lang={lang} />
+    <Portfolio lang={lang} />
+    <Contact lang={lang} />
+  </main>
+</BaseLayout>
+
+<style>
+  .main-content {
+    margin-left: 320px;
+    min-height: 100vh;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1500px) {
+    .main-content {
+      margin-left: 288px;
+    }
+  }
+
+  @media (max-width: 1199px) {
+    .main-content {
+      margin-left: 0;
+    }
+  }
+</style>

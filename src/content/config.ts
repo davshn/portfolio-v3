@@ -12,6 +12,7 @@ const projects = defineCollection({
     thumbnail: z.string(),
     liveUrl: z.string().url().optional(),
     order: z.number(),
+    lang: z.enum(['en', 'es'] as const),
   }),
 })
 
@@ -23,6 +24,7 @@ const services = defineCollection({
     shortDescription: z.string(),
     icon: z.string().optional(),
     order: z.number(),
+    lang: z.enum(['en', 'es'] as const),
   }),
 })
 

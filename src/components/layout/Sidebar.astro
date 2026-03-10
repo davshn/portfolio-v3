@@ -1,9 +1,27 @@
 ---
+import { getTranslation } from '../../i18n/utils'
+import LangToggle from '../ui/LangToggle.astro'
 import ThemeToggle from '../ui/ThemeToggle'
+
+import type { Locale } from '../../i18n/utils'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const t = getTranslation(lang)
 ---
 
 <aside id="sidebar" class="sidebar">
   <div class="sidebar-inner">
+    <!-- Top avatar -->
+    <div class="sidebar-avatar">
+      <div class="avatar-circle">
+        <img src="/assets/20230323_200654.jpg" alt="David Figueroa" width="72" height="72" loading="eager" />
+      </div>
+    </div>
+
     <!-- Logo/Name -->
     <div class="sidebar-logo">
       <a href="#home">David<span>.</span></a>
@@ -12,35 +30,140 @@ import ThemeToggle from '../ui/ThemeToggle'
     <!-- Nav -->
     <nav class="sidebar-nav" id="sidebar-nav">
       <ul>
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#service" class="nav-link">Services</a></li>
-        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li>
+          <a href="#home" class="nav-link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            {t.nav.home}
+          </a>
+        </li>
+        <li>
+          <a href="#about" class="nav-link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            {t.nav.about}
+          </a>
+        </li>
+        <li>
+          <a href="#service" class="nav-link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            {t.nav.service}
+          </a>
+        </li>
+        <li>
+          <a href="#portfolio" class="nav-link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            {t.nav.portfolio}
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="nav-link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            {t.nav.contact}
+          </a>
+        </li>
       </ul>
     </nav>
 
+    <!-- Language Toggle -->
+    <LangToggle lang={lang} />
+
+    <!-- Theme Toggle island -->
+    <ThemeToggle
+      client:visible
+      labelDark={t.common.themeToggle.dark}
+      labelLight={t.common.themeToggle.light}
+      ariaLabelDark={t.common.themeToggle.switchToDark}
+      ariaLabelLight={t.common.themeToggle.switchToLight}
+    />
+
+    <!-- Spacer to push bottom bar down -->
+    <div class="sidebar-spacer"></div>
+
+    <!-- Bottom bar -->
+    <div class="sidebar-bottom">
+      <div class="bottom-avatar">
+        <img src="/avatar.png" alt="David Figueroa" width="40" height="40" loading="lazy" />
+      </div>
+      <div class="bottom-info">
+        <span class="bottom-name">David Figueroa</span>
+        <span class="bottom-email">davshn@gmail.com</span>
+      </div>
+    </div>
+
     <!-- Social Icons (inline SVGs — Feather icon set) -->
     <div class="sidebar-social">
-      <a
-        href="https://www.facebook.com/david.figueroa.184"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Facebook"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          ><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg
-        >
-      </a>
       <a
         href="https://twitter.com/davshmr"
         target="_blank"
@@ -60,30 +183,6 @@ import ThemeToggle from '../ui/ThemeToggle'
           ><path
             d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
           ></path></svg
-        >
-      </a>
-      <a
-        href="https://www.instagram.com/davidfigueroa9055"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          ><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path
-            d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line
-            x1="17.5"
-            y1="6.5"
-            x2="17.51"
-            y2="6.5"></line></svg
         >
       </a>
       <a
@@ -129,9 +228,6 @@ import ThemeToggle from '../ui/ThemeToggle'
         >
       </a>
     </div>
-
-    <!-- Theme Toggle island -->
-    <ThemeToggle client:visible />
   </div>
 </aside>
 
@@ -149,8 +245,9 @@ import ThemeToggle from '../ui/ThemeToggle'
     top: 0;
     height: 100vh;
     width: 320px;
-    background-color: var(--sidebar-bg, #34495e);
-    color: #fff;
+    background-color: var(--sidebar-bg, #fff);
+    border-right: var(--sidebar-border, 1px solid #ebebeb);
+    color: var(--sidebar-nav-color, #7e7e7e);
     z-index: 100;
     transition: all 0.5s ease;
     overflow-y: auto;
@@ -176,34 +273,67 @@ import ThemeToggle from '../ui/ThemeToggle'
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
+    min-height: 100%;
+  }
+
+  /* Top avatar */
+  .sidebar-avatar {
+    display: flex;
+    justify-content: center;
+  }
+
+  .avatar-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--sidebar-avatar-bg, #f0f0f0);
+    border: 2px solid var(--sidebar-avatar-border, #e0e0e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .avatar-circle img {
+    width: 100%;
     height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Logo */
+  .sidebar-logo {
+    text-align: center;
   }
 
   .sidebar-logo a {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--sidebar-logo-color, #1a1a1a);
     text-decoration: none;
   }
 
   .sidebar-logo span {
-    color: #a9afc3;
+    color: var(--sidebar-logo-accent, #34495e);
   }
 
+  /* Nav */
   .sidebar-nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
   }
 
   .nav-link {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
     padding: 0.6rem 1rem;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--sidebar-nav-color, #7e7e7e);
     text-decoration: none;
     border-radius: 6px;
     font-size: 0.95rem;
@@ -215,26 +345,89 @@ import ThemeToggle from '../ui/ThemeToggle'
 
   .nav-link:hover,
   .nav-link.active {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.1);
+    color: var(--sidebar-nav-active-color, #34495e);
+    background: var(--sidebar-nav-active-bg, rgba(52, 73, 94, 0.08));
     padding-left: 1.5rem;
   }
 
+  /* Social */
   .sidebar-social {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
 
   .sidebar-social a {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--sidebar-icon-color, #aaaaaa);
     transition: color 0.3s ease;
   }
 
   .sidebar-social a:hover {
-    color: #fff;
+    color: var(--sidebar-icon-hover, #34495e);
   }
 
+  /* Spacer */
+  .sidebar-spacer {
+    flex: 1;
+  }
+
+  /* Bottom bar */
+  .sidebar-bottom {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-top: var(--sidebar-bottom-border, 1px solid #ebebeb);
+    margin: 0 -0.5rem -0.5rem;
+  }
+
+  .bottom-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--sidebar-avatar-bg, #f0f0f0);
+    border: 2px solid var(--sidebar-avatar-border, #e0e0e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .bottom-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .bottom-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    overflow: hidden;
+  }
+
+  .bottom-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--sidebar-logo-color, #1a1a1a);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .bottom-email {
+    font-size: 0.72rem;
+    color: var(--sidebar-nav-color, #7e7e7e);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Hamburger */
   .hamburger {
     display: none;
     position: fixed;
@@ -265,6 +458,17 @@ import ThemeToggle from '../ui/ThemeToggle'
 
   :global(body.theme-dark) .hamburger span {
     background: #fff;
+  }
+
+  /* Dark theme avatar colors */
+  :global(body.theme-dark) .avatar-circle,
+  :global(body.theme-dark) .bottom-avatar {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  :global(body.theme-dark) .sidebar-bottom {
+    border-top-color: rgba(255, 255, 255, 0.15);
   }
 </style>
 

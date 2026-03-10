@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hernán David Figueroa Cardenas — CV</title>
+  <link rel="icon" type="image/png" href="/avatar.png" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
     rel="stylesheet">
@@ -66,8 +67,8 @@
       width: 76px;
       height: 76px;
       border-radius: 50%;
-      border: 2px dashed var(--placeholder-border);
-      background: var(--placeholder);
+      border: none;
+      background: transparent;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -81,16 +82,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 55%;
       border-radius: 50%;
-    }
-
-    .photo-placeholder .ph-label {
-      font-size: 9px;
-      color: var(--placeholder-text);
-      font-family: var(--mono);
-      text-align: center;
-      line-height: 1.4;
-      padding: 4px;
     }
 
     /* ── LOGO PLACEHOLDER ── */
@@ -98,8 +91,8 @@
       width: 36px;
       height: 36px;
       border-radius: 8px;
-      border: 1.5px dashed var(--placeholder-border);
-      background: var(--placeholder);
+      border: 1px solid var(--border);
+      background: var(--surface);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -112,11 +105,6 @@
       height: 100%;
       object-fit: contain;
       border-radius: 6px;
-    }
-
-    .logo-placeholder .ph-icon {
-      font-size: 13px;
-      color: var(--placeholder-text);
     }
 
     /* ── LOGO PLACEHOLDER SMALL (edu) ── */
@@ -637,10 +625,8 @@
     <header class="header">
       <div class="header-inner">
 
-        <!-- FOTO: reemplaza el src con tu foto -->
         <div class="photo-placeholder">
-          <!-- <img src="tu-foto.jpg" alt="Hernán Figueroa" /> -->
-          <span class="ph-label">Your<br>Photo</span>
+          <img src="/assets/20230323_200654.jpg" alt="Hernán Figueroa" />
         </div>
 
         <div class="header-main">
@@ -686,10 +672,8 @@
       <div class="job">
         <div>
           <div class="job-header-row">
-            <!-- LOGO Wompi: reemplaza el src -->
             <div class="logo-placeholder">
-              <!-- <img src="wompi-logo.png" alt="Wompi" /> -->
-              <span class="ph-icon">🏢</span>
+              <img src="/assets/Wompi_ContraccionPrincipal.jpg" alt="Wompi" />
             </div>
             <div class="job-title-block">
               <div class="job-role">Mobile Engineer</div>
@@ -726,10 +710,8 @@
       <div class="job">
         <div>
           <div class="job-header-row">
-            <!-- LOGO Mento -->
             <div class="logo-placeholder">
-              <!-- <img src="mento-logo.png" alt="Mento" /> -->
-              <span class="ph-icon">🏢</span>
+              <img src="/assets/mento.jpg" alt="Mento" />
             </div>
             <div class="job-title-block">
               <div class="job-role">Senior Mobile Developer</div>
@@ -766,10 +748,8 @@
       <div class="job">
         <div>
           <div class="job-header-row">
-            <!-- LOGO Bentex/Logistecsa -->
             <div class="logo-placeholder">
-              <!-- <img src="bentex-logo.png" alt="Bentex" /> -->
-              <span class="ph-icon">🏢</span>
+              <img src="/assets/logistecsa.jpeg" alt="Logistecsa" />
             </div>
             <div class="job-title-block">
               <div class="job-role">Mobile Technical Lead</div>
@@ -803,10 +783,8 @@
       <div class="job">
         <div>
           <div class="job-header-row">
-            <!-- LOGO Orbis -->
             <div class="logo-placeholder">
-              <!-- <img src="orbis-logo.png" alt="Orbis Data" /> -->
-              <span class="ph-icon">🏢</span>
+              <img src="/assets/orbis.png" alt="Orbis Data" />
             </div>
             <div class="job-title-block">
               <div class="job-role">Frontend & Mobile Developer</div>
@@ -835,10 +813,8 @@
       <div class="job">
         <div>
           <div class="job-header-row">
-            <!-- LOGO Koscrypt -->
             <div class="logo-placeholder">
-              <!-- <img src="koscrypt-logo.png" alt="Koscrypt" /> -->
-              <span class="ph-icon">🏢</span>
+              <img src="/assets/koscrypt.jpeg" alt="Koscrypt" />
             </div>
             <div class="job-title-block">
               <div class="job-role">Fullstack Developer</div>
@@ -869,10 +845,8 @@
       <div class="job">
         <div>
           <div class="job-header-row">
-            <!-- LOGO Secretaría -->
             <div class="logo-placeholder">
-              <!-- <img src="secretaria-logo.png" alt="Secretaría" /> -->
-              <span class="ph-icon">🏛️</span>
+              <img src="/assets/sdis.jpeg" alt="Secretaría de Integración Social" />
             </div>
             <div class="job-title-block">
               <div class="job-role">IT Support Technician</div>
@@ -973,8 +947,7 @@
         <div>
           <div class="job-header-row">
             <div class="logo-placeholder">
-              <!-- <img src="forgeai-logo.png" alt="ForgeAI" /> -->
-              <span class="ph-icon">⚙️</span>
+              <img src="/assets/forgeai.png" alt="ForgeAI" />
             </div>
             <div class="job-title-block">
               <div class="job-role">ForgeAI <span style="font-weight:400;font-size:12px;color:var(--muted)">—
@@ -1009,8 +982,7 @@
         <div>
           <div class="job-header-row">
             <div class="logo-placeholder">
-              <!-- <img src="cyberquest-logo.png" alt="CyberQuest" /> -->
-              <span class="ph-icon">🔐</span>
+              <img src="/assets/Cyberquest.png" alt="CyberQuest" />
             </div>
             <div class="job-title-block">
               <div class="job-role">CyberQuest <span style="font-weight:400;font-size:12px;color:var(--muted)">— Founder
@@ -1049,8 +1021,7 @@
         <div>
           <div class="job-header-row">
             <div class="logo-placeholder">
-              <!-- <img src="foundryvtt-logo.png" alt="Foundry VTT" /> -->
-              <span class="ph-icon">🎲</span>
+              <img src="/assets/foundry.jpeg" alt="Foundry VTT" />
             </div>
             <div class="job-title-block">
               <div class="job-role">Foundry Virtual Tabletop <span
@@ -1089,10 +1060,8 @@
 
         <div class="edu-item">
           <div class="edu-header-row">
-            <!-- LOGO CUN -->
             <div class="logo-placeholder sm">
-              <!-- <img src="cun-logo.png" alt="CUN" /> -->
-              <span style="font-size:11px;">🎓</span>
+              <img src="/assets/CUN.jpg" alt="CUN" />
             </div>
             <div>
               <div class="edu-name">Systems Engineering</div>
@@ -1111,10 +1080,8 @@
 
         <div class="edu-item">
           <div class="edu-header-row">
-            <!-- LOGO Henry -->
             <div class="logo-placeholder sm">
-              <!-- <img src="henry-logo.png" alt="Henry" /> -->
-              <span style="font-size:11px;">🎓</span>
+              <img src="/assets/henry.png" alt="Henry" />
             </div>
             <div>
               <div class="edu-name">Fullstack Bootcamp</div>

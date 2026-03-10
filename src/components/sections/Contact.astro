@@ -1,12 +1,22 @@
 ---
+import type { Locale } from '../../i18n/utils'
+import { getTranslation } from '../../i18n/utils'
+
 import ContactForm from './ContactForm'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const t = getTranslation(lang)
 ---
 
 <section id="contact" class="contact-section">
   <div class="contact-container">
     <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
-      <div class="section-label">Get In Touch</div>
-      <h2 class="section-title">Contact Me</h2>
+      <div class="section-label">{t.contact.sectionLabel}</div>
+      <h2 class="section-title">{t.contact.sectionTitle}</h2>
     </div>
 
     <div class="contact-layout">
@@ -14,17 +24,17 @@ import ContactForm from './ContactForm'
       <div class="contact-cards">
         <div class="contact-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
           <div class="contact-card-icon">📞</div>
-          <h4>Phone</h4>
+          <h4>{t.contact.phone}</h4>
           <a href="tel:+573106961637">+57 3106961637</a>
         </div>
         <div class="contact-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
           <div class="contact-card-icon">✉️</div>
-          <h4>Email</h4>
+          <h4>{t.contact.email}</h4>
           <a href="mailto:davshn@gmail.com">davshn@gmail.com</a>
         </div>
         <div class="contact-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
           <div class="contact-card-icon">📍</div>
-          <h4>Location</h4>
+          <h4>{t.contact.location}</h4>
           <p>Galan, Bogota, Colombia</p>
         </div>
       </div>
@@ -36,7 +46,7 @@ import ContactForm from './ContactForm'
         data-aos-duration="1200"
         data-aos-delay="200"
       >
-        <ContactForm client:visible />
+        <ContactForm client:visible messages={t.contact} />
       </div>
     </div>
 

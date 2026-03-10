@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --fix; prettier . --write"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.6",
     "@astrojs/react": "^4.4.2",
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.2.1",
@@ -33,6 +34,9 @@
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "@types/react-modal": "^3.16.3",
+    "@types/react-slick": "^0.23.13",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
     "eslint": "^9.39.3",

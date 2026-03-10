@@ -1,52 +1,40 @@
 ---
+import type { Locale } from '../../i18n/utils'
+import { getTranslation } from '../../i18n/utils'
 import Button from '../ui/Button.astro'
 
 import TypedHero from './TypedHero'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const t = getTranslation(lang)
 ---
 
 <section id="home" class="hero-section">
   <div class="hero-container">
     <!-- Photo column -->
     <div class="hero-photo-col" data-aos="fade-right" data-aos-duration="1200">
-      <!-- Replace with <Image> from astro:assets once hero-photo.jpg is available -->
-      <div class="hero-photo-placeholder" aria-label="David Figueroa - Fullstack Developer">
-        <span>DF</span>
+      <div class="hero-photo">
+        <img src="/assets/20230323_200654.jpg" alt="David Figueroa - Fullstack Developer" width="220" height="220" loading="eager" />
       </div>
     </div>
 
     <!-- Text column -->
     <div class="hero-text-col" data-aos="fade-left" data-aos-duration="1200">
-      <h4 class="hero-greeting">Hello, I'm</h4>
+      <h4 class="hero-greeting">{t.hero.greeting}</h4>
       <h1 class="hero-name">David Figueroa</h1>
       <h3 class="hero-typed">
-        <TypedHero client:load />
+        <TypedHero client:load strings={t.hero.typedStrings} />
       </h3>
       <p class="hero-bio">
-        Senior Mobile Engineer specializing in fintech and secure payments, with 9+ years building production React Native apps from zero to scale.
+        {t.hero.bio}
       </p>
 
       <!-- Social icons -->
       <div class="hero-social">
-        <a
-          href="https://www.facebook.com/david.figueroa.184"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Facebook"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-            ></path></svg
-          >
-        </a>
         <a
           href="https://twitter.com/davshmr"
           target="_blank"
@@ -66,30 +54,6 @@ import TypedHero from './TypedHero'
             ><path
               d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
             ></path></svg
-          >
-        </a>
-        <a
-          href="https://www.instagram.com/davidfigueroa9055"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path
-              d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line
-              x1="17.5"
-              y1="6.5"
-              x2="17.51"
-              y2="6.5"></line></svg
           >
         </a>
         <a
@@ -138,7 +102,7 @@ import TypedHero from './TypedHero'
       </div>
 
       <div class="hero-cta" data-aos-delay="200">
-        <Button label="View CV" href="/cv-hernan-figueroa.html" />
+        <Button label={t.hero.cvButton} href="/cv-hernan-figueroa.html" />
       </div>
     </div>
   </div>
@@ -170,18 +134,21 @@ import TypedHero from './TypedHero'
     flex-shrink: 0;
   }
 
-  .hero-photo-placeholder {
+  .hero-photo {
     width: 220px;
     height: 220px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #fff;
+    overflow: hidden;
     box-shadow: 0 20px 60px rgba(52, 73, 94, 0.3);
+    flex-shrink: 0;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+    display: block;
   }
 
   .hero-text-col {

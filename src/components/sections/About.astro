@@ -1,32 +1,44 @@
 ---
-import educationData from '../../content/education.json'
-import experienceData from '../../content/experience.json'
-import skillsData from '../../content/skills.json'
+import type { Locale } from '../../i18n/utils'
+import { getTranslation } from '../../i18n/utils'
+import educationEnData from '../../content/education.json'
+import educationEsData from '../../content/education.es.json'
+import experienceEnData from '../../content/experience.json'
+import experienceEsData from '../../content/experience.es.json'
+import skillsEnData from '../../content/skills.json'
+import skillsEsData from '../../content/skills.es.json'
 import Badge from '../ui/Badge.astro'
 import ProgressBar from '../ui/ProgressBar.astro'
 
 import AboutIsland from './AboutIsland'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const t = getTranslation(lang)
+
+const skillsData = lang === 'es' ? skillsEsData : skillsEnData
+const experienceData = lang === 'es' ? experienceEsData : experienceEnData
+const educationData = lang === 'es' ? educationEsData : educationEnData
 ---
 
 <section id="about" class="about-section">
   <div class="about-container">
     <!-- Left column: bio + skill bars -->
     <div class="about-left" data-aos="fade-right" data-aos-duration="1200">
-      <div class="section-label">Who am I?</div>
-      <h2 class="section-title">About Me</h2>
+      <div class="section-label">{t.about.sectionLabel}</div>
+      <h2 class="section-title">{t.about.sectionTitle}</h2>
       <p class="about-bio">
-        Senior Mobile Engineer specializing in fintech and secure payments, with 9+ years building
-        production React Native apps from zero to scale. I've shipped a logistics platform used
-        across Latin America, grown a fintech app from its first user to 500+ daily active clients,
-        and implemented PCI DSS-compliant security layers at one of Colombia's leading payment gateways.
+        {t.about.bioP1}
       </p>
       <p class="about-bio">
-        Based in Bogota, Colombia. Available for freelance and open to new opportunities.
-        I work in both Spanish and English.
+        {t.about.bioP2}
       </p>
 
       <div class="skills-section">
-        <h3>My Skills</h3>
+        <h3>{t.about.skillsHeading}</h3>
         {skillsData.map((skill) => <ProgressBar label={skill.name} percentage={skill.percent} />)}
       </div>
     </div>
@@ -34,16 +46,20 @@ import AboutIsland from './AboutIsland'
     <!-- Right column: photo + badge + see more -->
     <div class="about-right" data-aos="fade-left" data-aos-duration="1200">
       <div class="about-photo-wrapper">
-        <!-- Replace with <Image> from astro:assets once about-photo.jpg is available -->
-        <div class="about-photo-placeholder" aria-label="David Figueroa">
-          <span>DF</span>
+        <div class="about-photo">
+          <img src="/assets/20230323_200654.jpg" alt="David Figueroa" loading="lazy" />
         </div>
         <div class="about-badge-wrapper">
-          <Badge text="9+ Years of Experience" />
+          <Badge text={t.about.experienceBadge} />
         </div>
       </div>
 
-      <AboutIsland client:only="react" experience={experienceData} education={educationData} />
+      <AboutIsland
+        client:only="react"
+        experience={experienceData}
+        education={educationData}
+        messages={t.about}
+      />
     </div>
   </div>
 </section>
@@ -110,18 +126,20 @@ import AboutIsland from './AboutIsland'
     margin-bottom: 2rem;
   }
 
-  .about-photo-placeholder {
+  .about-photo {
     width: 100%;
     aspect-ratio: 3/4;
-    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    font-weight: 700;
-    color: #fff;
+    overflow: hidden;
     max-height: 400px;
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
   }
 
   .about-badge-wrapper {

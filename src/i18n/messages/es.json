@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "service": "Servicios",
+    "portfolio": "Portafolio",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "typedStrings": [
+      "Desarrollador Fullstack",
+      "Ingeniero Móvil Senior",
+      "Arquitecto React Native",
+      "Especialista Fintech"
+    ],
+    "bio": "Desarrollador Fullstack con 9+ años de experiencia construyendo aplicaciones web y móviles — especializado en fintech, pagos seguros y React Native.",
+    "cvButton": "Ver CV",
+    "seo": {
+      "title": "David Figueroa | Desarrollador Fullstack",
+      "description": "Portafolio personal de David Figueroa — Desarrollador Fullstack basado en Bogotá, Colombia con más de 9 años de experiencia construyendo aplicaciones web y móviles."
+    }
+  },
+  "about": {
+    "sectionLabel": "¿Quién soy?",
+    "sectionTitle": "Sobre Mí",
+    "bioP1": "Soy Ingeniero Móvil Senior especializado en fintech y pagos seguros, con 9+ años construyendo aplicaciones React Native en producción desde cero. He lanzado una plataforma logística utilizada en toda Latinoamérica, hice crecer una app fintech desde su primer usuario hasta más de 500 clientes activos diarios, e implementé capas de seguridad alineadas con PCI DSS en una de las principales pasarelas de pagos de Colombia.",
+    "bioP2": "Basado en Bogotá, Colombia. Disponible para freelance y abierto a nuevas oportunidades. Trabajo tanto en español como en inglés.",
+    "skillsHeading": "Mis Habilidades",
+    "experienceBadge": "9+ Años de Experiencia",
+    "seeMoreButton": "Ver Más",
+    "modal": {
+      "tabs": {
+        "personal": "Info Personal",
+        "achievements": "Logros",
+        "experience": "Experiencia",
+        "education": "Educación"
+      },
+      "personal": {
+        "heading": "Información Personal",
+        "fullName": "Nombre Completo",
+        "location": "Ubicación",
+        "phone": "Teléfono",
+        "email": "Correo",
+        "languages": "Idiomas",
+        "discord": "Discord",
+        "freelance": "Freelance",
+        "freelanceValue": "Disponible"
+      },
+      "achievements": {
+        "heading": "Logros",
+        "yearsLabel": "Años de Experiencia",
+        "projectsLabel": "Proyectos Completados",
+        "customersLabel": "Clientes Satisfechos"
+      },
+      "experience": {
+        "heading": "Experiencia Laboral"
+      },
+      "education": {
+        "heading": "Educación"
+      }
+    }
+  },
+  "service": {
+    "sectionLabel": "Lo Que Hago",
+    "sectionTitle": "Mis Servicios",
+    "modal": {
+      "closeAriaLabel": "Cerrar modal"
+    }
+  },
+  "portfolio": {
+    "sectionLabel": "Mi Trabajo",
+    "sectionTitle": "Portafolio",
+    "modal": {
+      "closeAriaLabel": "Cerrar modal",
+      "clientLabel": "Cliente",
+      "categoryLabel": "Categoría",
+      "dateLabel": "Fecha",
+      "liveLinkText": "Ver Proyecto en Vivo →"
+    }
+  },
+  "contact": {
+    "sectionLabel": "Ponte en Contacto",
+    "sectionTitle": "Contáctame",
+    "phone": "Teléfono",
+    "email": "Correo",
+    "location": "Ubicación",
+    "form": {
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "emailLabel": "Correo",
+      "emailPlaceholder": "tu@correo.com",
+      "messageLabel": "Mensaje",
+      "messagePlaceholder": "Tu mensaje...",
+      "submitButton": "Enviar Mensaje"
+    },
+    "toast": {
+      "success": "¡Mensaje Enviado con Éxito!",
+      "error": "¡Ups! El Mensaje No Se Envió"
+    }
+  },
+  "common": {
+    "themeToggle": {
+      "dark": "Oscuro",
+      "light": "Claro",
+      "switchToDark": "Cambiar a modo oscuro",
+      "switchToLight": "Cambiar a modo claro"
+    },
+    "langToggle": {
+      "switchToEs": "Español",
+      "switchToEn": "English"
+    },
+    "closeModal": "Cerrar"
+  }
+}

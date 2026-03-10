@@ -1,14 +1,23 @@
 ---
-import { getCollection } from 'astro:content'
+import type { Locale } from '../../i18n/utils'
+import { getTranslation } from '../../i18n/utils'
+import { getLocalizedCollection } from '../../i18n/getCollection'
 
 import ServiceCards from './ServiceCards'
 
-const servicesCollection = await getCollection('services')
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const t = getTranslation(lang)
+
+const servicesCollection = await getLocalizedCollection('services', lang)
 
 const services = servicesCollection
   .sort((a, b) => a.data.order - b.data.order)
   .map((entry) => ({
-    id: entry.id,
+    id: entry.id.replace(/^(en|es)\//, ''),
     title: entry.data.title,
     shortDescription: entry.data.shortDescription,
     body: entry.body,
@@ -19,11 +28,11 @@ const services = servicesCollection
 <section id="service" class="service-section">
   <div class="service-container">
     <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
-      <div class="section-label">What I Do</div>
-      <h2 class="section-title">My Services</h2>
+      <div class="section-label">{t.service.sectionLabel}</div>
+      <h2 class="section-title">{t.service.sectionTitle}</h2>
     </div>
 
-    <ServiceCards client:only="react" services={services} />
+    <ServiceCards client:only="react" services={services} messages={t.service} />
   </div>
 </section>
 

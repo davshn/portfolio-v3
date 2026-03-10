@@ -1,8 +1,14 @@
 import { useRef } from 'react'
 
+import type { ContactMessages } from '../../i18n/utils'
+
 const TO_EMAIL = 'davshn@gmail.com'
 
-export default function ContactForm(): React.ReactElement {
+interface Props {
+  messages: ContactMessages
+}
+
+export default function ContactForm({ messages }: Props): React.ReactElement {
   const nameRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
   const messageRef = useRef<HTMLTextAreaElement>(null)
@@ -21,35 +27,35 @@ export default function ContactForm(): React.ReactElement {
   return (
     <form onSubmit={handleSubmit} className="contact-form">
       <div className="form-group">
-        <label htmlFor="user_name">Name</label>
+        <label htmlFor="user_name">{messages.form.nameLabel}</label>
         <input
           id="user_name"
           type="text"
           name="user_name"
-          placeholder="Your name"
+          placeholder={messages.form.namePlaceholder}
           required
           ref={nameRef}
         />
       </div>
 
       <div className="form-group">
-        <label htmlFor="user_email">Email</label>
+        <label htmlFor="user_email">{messages.form.emailLabel}</label>
         <input
           id="user_email"
           type="email"
           name="user_email"
-          placeholder="your@email.com"
+          placeholder={messages.form.emailPlaceholder}
           required
           ref={emailRef}
         />
       </div>
 
       <div className="form-group">
-        <label htmlFor="message">Message</label>
+        <label htmlFor="message">{messages.form.messageLabel}</label>
         <textarea
           id="message"
           name="message"
-          placeholder="Your message..."
+          placeholder={messages.form.messagePlaceholder}
           rows={5}
           required
           ref={messageRef}
@@ -57,7 +63,7 @@ export default function ContactForm(): React.ReactElement {
       </div>
 
       <button type="submit" className="submit-btn">
-        Send Message
+        {messages.form.submitButton}
       </button>
 
       <style>{`

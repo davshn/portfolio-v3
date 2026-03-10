@@ -77,6 +77,21 @@ body.theme-light {
   --brand-color: #34495e;
   --section-alt-bg: #f5f5f5;
   --section-alt-bg-2: #f5f8fc;
+  --sidebar-bg: #fff;
+  --sidebar-border: 1px solid #ebebeb;
+  --sidebar-logo-color: #1a1a1a;
+  --sidebar-logo-accent: #34495e;
+  --sidebar-nav-color: #7e7e7e;
+  --sidebar-nav-active-bg: rgba(52, 73, 94, 0.08);
+  --sidebar-nav-active-color: #34495e;
+  --sidebar-icon-color: #aaaaaa;
+  --sidebar-icon-hover: #34495e;
+  --sidebar-lang-color: #aaaaaa;
+  --sidebar-lang-active: #34495e;
+  --sidebar-lang-divider: #dddddd;
+  --sidebar-avatar-bg: #f0f0f0;
+  --sidebar-avatar-border: #e0e0e0;
+  --sidebar-bottom-border: 1px solid #ebebeb;
 }
 
 body.theme-light h1,
@@ -97,6 +112,20 @@ body.theme-dark {
   --brand-color: #34495e;
   --hero-bg: #191c26;
   --sidebar-bg: #34495e;
+  --sidebar-border: none;
+  --sidebar-logo-color: #fff;
+  --sidebar-logo-accent: #a9afc3;
+  --sidebar-nav-color: rgba(255, 255, 255, 0.75);
+  --sidebar-nav-active-bg: rgba(255, 255, 255, 0.1);
+  --sidebar-nav-active-color: #fff;
+  --sidebar-icon-color: rgba(255, 255, 255, 0.7);
+  --sidebar-icon-hover: #fff;
+  --sidebar-lang-color: rgba(255, 255, 255, 0.6);
+  --sidebar-lang-active: #fff;
+  --sidebar-lang-divider: rgba(255, 255, 255, 0.3);
+  --sidebar-avatar-bg: rgba(255, 255, 255, 0.1);
+  --sidebar-avatar-border: rgba(255, 255, 255, 0.2);
+  --sidebar-bottom-border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 body.theme-dark h1,
@@ -170,4 +199,38 @@ body.theme-dark .custom-modal {
 
 .modal-close-btn:hover {
   opacity: 1;
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid var(--sidebar-toggle-border, rgba(0, 0, 0, 0.2));
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  color: var(--sidebar-toggle-color, #1a1a1a);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--sidebar-toggle-hover-bg, rgba(0, 0, 0, 0.06));
+}
+
+body.theme-light {
+  --sidebar-toggle-border: rgba(0, 0, 0, 0.2);
+  --sidebar-toggle-color: #1a1a1a;
+  --sidebar-toggle-hover-bg: rgba(0, 0, 0, 0.06);
+}
+
+body.theme-dark {
+  --sidebar-toggle-border: rgba(255, 255, 255, 0.3);
+  --sidebar-toggle-color: #fff;
+  --sidebar-toggle-hover-bg: rgba(255, 255, 255, 0.1);
 }

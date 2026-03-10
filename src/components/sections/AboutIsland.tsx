@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import type { AboutMessages } from '../../i18n/utils'
 import AboutModal from './AboutModal'
 
 interface Experience {
@@ -18,9 +19,10 @@ interface Education {
 interface Props {
   experience: Experience[]
   education: Education[]
+  messages: AboutMessages
 }
 
-export default function AboutIsland({ experience, education }: Props): React.ReactElement {
+export default function AboutIsland({ experience, education, messages }: Props): React.ReactElement {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -30,9 +32,9 @@ export default function AboutIsland({ experience, education }: Props): React.Rea
         onClick={() => {
           setIsOpen(true)
         }}
-        aria-label="See more about David Figueroa"
+        aria-label={messages.seeMoreButton}
       >
-        See More
+        {messages.seeMoreButton}
       </button>
       <AboutModal
         isOpen={isOpen}
@@ -41,6 +43,7 @@ export default function AboutIsland({ experience, education }: Props): React.Rea
         }}
         experience={experience}
         education={education}
+        messages={messages}
       />
       <style>{`
         .btn-see-more {

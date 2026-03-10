@@ -3,6 +3,7 @@ import { useState } from 'react'
 import SliderLib from 'react-slick'
 import { Tooltip } from 'react-tooltip'
 
+import type { PortfolioMessages } from '../../i18n/utils'
 import Modal from '../ui/Modal'
 
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-type-assertion -- CJS/ESM interop: fallback handles both { default: Fn } and direct Fn cases */
@@ -33,9 +34,10 @@ interface Project {
 
 interface Props {
   projects: Project[]
+  messages: PortfolioMessages
 }
 
-export default function PortfolioCarousel({ projects }: Props): React.ReactElement {
+export default function PortfolioCarousel({ projects, messages }: Props): React.ReactElement {
   const [activeProject, setActiveProject] = useState<string | null>(null)
 
   const activeItem = projects.find((p) => p.id === activeProject) ?? null
@@ -78,10 +80,19 @@ export default function PortfolioCarousel({ projects }: Props): React.ReactEleme
                 data-tooltip-content={project.title}
                 aria-label={`View ${project.title} project`}
               >
-                {/* Replace with real image once available */}
-                <div className="portfolio-thumb-placeholder">
-                  {/* eslint-disable-next-line @typescript-eslint/no-magic-numbers -- 0 is the first character index */}
-                  <span>{project.title.charAt(0)}</span>
+                <div className="portfolio-thumb">
+                  <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    loading="lazy"
+                    style={{
+                      objectFit:
+                        project.thumbnail.includes('foundry') ||
+                        project.thumbnail.includes('Cyberquest')
+                          ? 'contain'
+                          : 'cover',
+                    }}
+                  />
                 </div>
                 <div className="portfolio-card-info">
                   <h3>{project.title}</h3>
@@ -106,7 +117,7 @@ export default function PortfolioCarousel({ projects }: Props): React.ReactEleme
             onClick={() => {
               setActiveProject(null)
             }}
-            aria-label="Close modal"
+            aria-label={messages.modal.closeAriaLabel}
           >
             <img src="/img/svg/cancel.svg" alt="Close" width={24} height={24} />
           </button>
@@ -114,13 +125,13 @@ export default function PortfolioCarousel({ projects }: Props): React.ReactEleme
             <h2>{activeItem.title}</h2>
             <div className="project-meta">
               <span>
-                <strong>Client:</strong> {activeItem.client}
+                <strong>{messages.modal.clientLabel}:</strong> {activeItem.client}
               </span>
               <span>
-                <strong>Category:</strong> {activeItem.category}
+                <strong>{messages.modal.categoryLabel}:</strong> {activeItem.category}
               </span>
               <span>
-                <strong>Date:</strong> {activeItem.date}
+                <strong>{messages.modal.dateLabel}:</strong> {activeItem.date}
               </span>
             </div>
             <p className="project-desc">{activeItem.description}</p>
@@ -141,7 +152,7 @@ export default function PortfolioCarousel({ projects }: Props): React.ReactEleme
                 rel="noopener noreferrer"
                 className="project-live-link"
               >
-                View Live Project →
+                {messages.modal.liveLinkText}
               </a>
             )}
           </div>
@@ -190,16 +201,24 @@ export default function PortfolioCarousel({ projects }: Props): React.ReactEleme
           box-shadow: 0 8px 30px rgba(0,0,0,0.15);
           transform: translateY(-4px);
         }
-        .portfolio-thumb-placeholder {
+        .portfolio-thumb {
           width: 100%;
           aspect-ratio: 4/3;
-          background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 3rem;
-          font-weight: 700;
-          color: rgba(255,255,255,0.5);
+          overflow: hidden;
+          background: #111319;
+          position: relative;
+        }
+        .portfolio-thumb img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+        .portfolio-card:hover .portfolio-thumb img {
+          transform: scale(1.04);
         }
         .portfolio-card-info { padding: 1rem; }
         .portfolio-card-info h3 { font-size: 1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.25rem; }

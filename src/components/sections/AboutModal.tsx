@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import type { AboutMessages } from '../../i18n/utils'
 import Modal from '../ui/Modal'
 
 interface Experience {
@@ -20,28 +21,29 @@ interface Props {
   onClose: () => void
   experience: Experience[]
   education: Education[]
+  messages: AboutMessages
 }
 
-type Tab = 'personal' | 'achievements' | 'experience' | 'education'
+type Tab = 'personal' | 'experience' | 'education'
 
 export default function AboutModal({
   isOpen,
   onClose,
   experience,
   education,
+  messages,
 }: Props): React.ReactElement {
   const [activeTab, setActiveTab] = useState<Tab>('personal')
 
   const tabs: Array<{ id: Tab; label: string }> = [
-    { id: 'personal', label: 'Personal Info' },
-    { id: 'achievements', label: 'Achievements' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'education', label: 'Education' },
+    { id: 'personal', label: messages.modal.tabs.personal },
+    { id: 'experience', label: messages.modal.tabs.experience },
+    { id: 'education', label: messages.modal.tabs.education },
   ]
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} className="about-popup-wrapper">
-      <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
+      <button className="modal-close-btn" onClick={onClose} aria-label={messages.modal.tabs.personal}>
         <img src="/img/svg/cancel.svg" alt="Close" width={24} height={24} />
       </button>
 
@@ -62,56 +64,36 @@ export default function AboutModal({
       <div className="about-modal-content">
         {activeTab === 'personal' && (
           <div className="tab-panel">
-            <h3>Personal Information</h3>
+            <h3>{messages.modal.personal.heading}</h3>
             <ul className="info-list">
               <li>
-                <span>Full Name:</span> Hernán David Figueroa Cárdenas
+                <span>{messages.modal.personal.fullName}:</span> Hernán David Figueroa Cárdenas
               </li>
               <li>
-                <span>Location:</span> Galan, Bogota, Colombia
+                <span>{messages.modal.personal.location}:</span> Galan, Bogota, Colombia
               </li>
               <li>
-                <span>Phone:</span> +57 3106961637
+                <span>{messages.modal.personal.phone}:</span> +57 3106961637
               </li>
               <li>
-                <span>Email:</span> davshn@gmail.com
+                <span>{messages.modal.personal.email}:</span> davshn@gmail.com
               </li>
               <li>
-                <span>Languages:</span> Spanish, English
+                <span>{messages.modal.personal.languages}:</span> Spanish, English
               </li>
               <li>
-                <span>Discord:</span> Davshn#3361
+                <span>{messages.modal.personal.discord}:</span> Davshn#3361
               </li>
               <li>
-                <span>Freelance:</span> Available
+                <span>{messages.modal.personal.freelance}:</span> {messages.modal.personal.freelanceValue}
               </li>
             </ul>
           </div>
         )}
 
-        {activeTab === 'achievements' && (
-          <div className="tab-panel">
-            <h3>Achievements</h3>
-            <div className="achievements-grid">
-              <div className="achievement-card">
-                <span className="achievement-number">09</span>
-                <span className="achievement-label">Years Experience</span>
-              </div>
-              <div className="achievement-card">
-                <span className="achievement-number">37</span>
-                <span className="achievement-label">Completed Projects</span>
-              </div>
-              <div className="achievement-card">
-                <span className="achievement-number">21</span>
-                <span className="achievement-label">Happy Customers</span>
-              </div>
-            </div>
-          </div>
-        )}
-
         {activeTab === 'experience' && (
           <div className="tab-panel">
-            <h3>Work Experience</h3>
+            <h3>{messages.modal.experience.heading}</h3>
             <ul className="timeline-list">
               {experience.map((item, i) => (
                 <li key={i} className="timeline-item">
@@ -130,7 +112,7 @@ export default function AboutModal({
 
         {activeTab === 'education' && (
           <div className="tab-panel">
-            <h3>Education</h3>
+            <h3>{messages.modal.education.heading}</h3>
             <ul className="timeline-list">
               {education.map((item, i) => (
                 <li key={i} className="timeline-item">

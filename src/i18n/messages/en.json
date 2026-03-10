@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "service": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "typedStrings": [
+      "Fullstack Developer",
+      "Senior Mobile Engineer",
+      "React Native Architect",
+      "Fintech Specialist"
+    ],
+    "bio": "Fullstack Developer with 9+ years of experience building web and mobile applications — specializing in fintech, secure payments, and React Native.",
+    "cvButton": "View CV",
+    "seo": {
+      "title": "David Figueroa | Fullstack Developer",
+      "description": "Personal portfolio of David Figueroa — Fullstack Developer based in Bogota, Colombia with 9+ years of experience building web and mobile applications."
+    }
+  },
+  "about": {
+    "sectionLabel": "Who am I?",
+    "sectionTitle": "About Me",
+    "bioP1": "I'm a Senior Mobile Engineer specializing in fintech and secure payments, with 9+ years building production React Native apps from zero to scale. I've shipped a logistics platform used across Latin America, grown a fintech app from its first user to 500+ daily active clients, and implemented PCI DSS-compliant security layers at one of Colombia's leading payment gateways.",
+    "bioP2": "Based in Bogota, Colombia. Available for freelance and open to new opportunities. I work in both Spanish and English.",
+    "skillsHeading": "My Skills",
+    "experienceBadge": "9+ Years of Experience",
+    "seeMoreButton": "See More",
+    "modal": {
+      "tabs": {
+        "personal": "Personal Info",
+        "achievements": "Achievements",
+        "experience": "Experience",
+        "education": "Education"
+      },
+      "personal": {
+        "heading": "Personal Information",
+        "fullName": "Full Name",
+        "location": "Location",
+        "phone": "Phone",
+        "email": "Email",
+        "languages": "Languages",
+        "discord": "Discord",
+        "freelance": "Freelance",
+        "freelanceValue": "Available"
+      },
+      "achievements": {
+        "heading": "Achievements",
+        "yearsLabel": "Years Experience",
+        "projectsLabel": "Completed Projects",
+        "customersLabel": "Happy Customers"
+      },
+      "experience": {
+        "heading": "Work Experience"
+      },
+      "education": {
+        "heading": "Education"
+      }
+    }
+  },
+  "service": {
+    "sectionLabel": "What I Do",
+    "sectionTitle": "My Services",
+    "modal": {
+      "closeAriaLabel": "Close modal"
+    }
+  },
+  "portfolio": {
+    "sectionLabel": "My Work",
+    "sectionTitle": "Portfolio",
+    "modal": {
+      "closeAriaLabel": "Close modal",
+      "clientLabel": "Client",
+      "categoryLabel": "Category",
+      "dateLabel": "Date",
+      "liveLinkText": "View Live Project →"
+    }
+  },
+  "contact": {
+    "sectionLabel": "Get In Touch",
+    "sectionTitle": "Contact Me",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Your message...",
+      "submitButton": "Send Message"
+    },
+    "toast": {
+      "success": "Message Sent Successfully!",
+      "error": "Ops Message Not Sent!"
+    }
+  },
+  "common": {
+    "themeToggle": {
+      "dark": "Dark",
+      "light": "Light",
+      "switchToDark": "Switch to dark mode",
+      "switchToLight": "Switch to light mode"
+    },
+    "langToggle": {
+      "switchToEs": "Español",
+      "switchToEn": "English"
+    },
+    "closeModal": "Close"
+  }
+}

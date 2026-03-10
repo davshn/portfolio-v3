@@ -1,7 +1,19 @@
 import { useState, useEffect } from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa'
 
-export default function ThemeToggle(): React.ReactElement {
+interface Props {
+  labelDark?: string
+  labelLight?: string
+  ariaLabelDark?: string
+  ariaLabelLight?: string
+}
+
+export default function ThemeToggle({
+  labelDark = 'Dark',
+  labelLight = 'Light',
+  ariaLabelDark = 'Switch to dark mode',
+  ariaLabelLight = 'Switch to light mode',
+}: Props): React.ReactElement {
   const [isDark, setIsDark] = useState(false)
 
   useEffect((): void => {
@@ -18,23 +30,11 @@ export default function ThemeToggle(): React.ReactElement {
   return (
     <button
       onClick={toggle}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      style={{
-        background: 'none',
-        border: '1px solid rgba(255,255,255,0.3)',
-        borderRadius: '6px',
-        padding: '0.5rem 1rem',
-        color: '#fff',
-        cursor: 'pointer',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.5rem',
-        fontSize: '0.85rem',
-        transition: 'all 0.3s ease',
-      }}
+      aria-label={isDark ? ariaLabelLight : ariaLabelDark}
+      className="theme-toggle-btn"
     >
       {isDark ? <FaSun size={14} /> : <FaMoon size={14} />}
-      {isDark ? 'Light' : 'Dark'}
+      <span>{isDark ? labelLight : labelDark}</span>
     </button>
   )
 }

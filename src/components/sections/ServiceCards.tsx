@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Tilt from 'react-parallax-tilt'
 
+import type { ServiceMessages } from '../../i18n/utils'
 import Modal from '../ui/Modal'
 
 interface ServiceItem {
@@ -13,6 +14,7 @@ interface ServiceItem {
 
 interface Props {
   services: ServiceItem[]
+  messages: ServiceMessages
 }
 
 const SERVICE_ICONS: Record<string, string> = {
@@ -28,7 +30,7 @@ const CARD_DELAYS = [100, 200, 300, 400] as const
 
 const DEFAULT_DELAY = 100
 
-export default function ServiceCards({ services }: Props): React.ReactElement {
+export default function ServiceCards({ services, messages }: Props): React.ReactElement {
   const [activeService, setActiveService] = useState<string | null>(null)
 
   const activeItem = services.find((s) => s.id === activeService) ?? null
@@ -73,7 +75,7 @@ export default function ServiceCards({ services }: Props): React.ReactElement {
             onClick={() => {
               setActiveService(null)
             }}
-            aria-label="Close modal"
+            aria-label={messages.modal.closeAriaLabel}
           >
             <img src="/img/svg/cancel.svg" alt="Close" width={24} height={24} />
           </button>

@@ -1,0 +1,89 @@
+---
+import { getTranslation } from '../../i18n/utils'
+
+import type { Locale } from '../../i18n/utils'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const t = getTranslation(lang)
+---
+
+<div class="lang-toggle">
+  <a
+    href="/en"
+    class:list={['lang-btn', { active: lang === 'en' }]}
+    aria-label={t.common.langToggle.switchToEn}
+    data-lang="en">EN</a
+  >
+  <span class="lang-divider">|</span>
+  <a
+    href="/es"
+    class:list={['lang-btn', { active: lang === 'es' }]}
+    aria-label={t.common.langToggle.switchToEs}
+    data-lang="es">ES</a
+  >
+</div>
+
+<!-- No-flash locale redirect: runs synchronously before first paint.
+     Reads stored locale from localStorage and redirects if it differs
+     from the current URL segment. Validates against allowed values only. -->
+<script is:inline>
+  ;(function () {
+    var stored = localStorage.getItem('portfolio-lang')
+    var pathLang = window.location.pathname.split('/')[1]
+    if (stored && stored !== pathLang && (stored === 'en' || stored === 'es')) {
+      window.location.replace('/' + stored)
+    }
+  })()
+</script>
+
+<!-- Persist chosen locale to localStorage on click -->
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.lang-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const chosen = btn.getAttribute('data-lang')
+      if (chosen === 'en' || chosen === 'es') {
+        localStorage.setItem('portfolio-lang', chosen)
+      }
+    })
+  })
+</script>
+
+<style>
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .lang-btn {
+    color: var(--sidebar-lang-color, #aaaaaa);
+    text-decoration: none;
+    padding: 0.25rem 0.4rem;
+    border-radius: 4px;
+    transition: color 0.3s ease;
+    letter-spacing: 0.05em;
+  }
+
+  .lang-btn:hover {
+    color: var(--sidebar-lang-active, #34495e);
+  }
+
+  .lang-btn.active {
+    color: var(--sidebar-lang-active, #34495e);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .lang-divider {
+    color: var(--sidebar-lang-divider, #dddddd);
+    user-select: none;
+  }
+</style>
