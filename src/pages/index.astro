@@ -1,7 +1,4 @@
 ---
-// Redirect root to the default locale (/en).
-// Astro i18n `redirectToDefaultLocale: true` handles this at runtime,
-// but this stub ensures static output also has a redirect for adapters
-// that serve the file directly.
+// Redirect handled at CDN level via vercel.json — no HTML fallback needed.
 return Astro.redirect('/en', 301)
 ---
